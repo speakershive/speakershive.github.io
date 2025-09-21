@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SPEAKERSHIVE VOLUNTEERS</title>
+  <style>
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .layer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      /*margin-bottom: 40px;*/
+    }
+    .layer-header {
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: #222;
+      background: linear-gradient(200deg, #fffbe7 40%, #ffe066 100%);
+      box-shadow: 0 4px 18px rgba(60, 60, 60, 0.10);
+      padding: 18px 0;
+      letter-spacing: 1.2px;
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 8px #fffbe7;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin-top: 1vw;
+    }
+    .layer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin-bottom: 28px;
+      max-width: 950px;
+      width: 90%;
+      justify-content: center;
+    }
+    .cards-row > .volunteer-card {
+      max-width: 210px;
+      min-width: 180px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Show next 4 cards in a new row, handled in HTML below */
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffbe7;
+      margin: 0; padding: 0;
+      color: #222;
+    }
+    header {
+      background: #eed669;
+      display: flex;
+      align-items: center;
+      border-bottom: 4px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 100px;
+    }
+
+    header h1{
+        font-size: 1.8vw;
+    }
+
+    .logo {
+      width: 160px;
+      margin-right: 30px;
+    }
+    h1 {
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #000000;
+    }
+    .hive-img {
+      width: 90px;
+      float: right;
+      margin-left: 25px;
+    }
+    .volunteer-card {
+      background: linear-gradient(135deg, #fffbe7 60%, #f5e8b1 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(60, 60, 60, 0.13);
+      padding: 32px 18px 18px 18px;
+      text-align: center;
+      position: relative;
+      transition: box-shadow 0.25s, transform 0.18s;
+      border: 1.5px solid #ffd600;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .volunteer-card:hover {
+      box-shadow: 0 8px 32px rgba(255, 214, 0, 0.28), 0 2px 8px rgba(60, 60, 60, 0.10);
+      transform: translateY(-6px) scale(1.04);
+      border-color: #c97e12;
+    }
+    .volunteer-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+      object-fit: cover;
+      border: 3px solid #c97e12;
+      box-shadow: 0 2px 8px rgba(200, 160, 0, 0.13);
+      background: #fffbe7;
+    }
+    .volunteer-name {
+      font-size: 1.5vw;
+      font-weight: 600;
+      margin-bottom: 7px;
+      color: #222;
+      letter-spacing: 0.5px;
+      text-shadow: 0 1px 0 #fffbe7;
+    }
+    .volunteer-role {
+      color: #c97e12;
+      font-weight: 600;
+      margin-bottom: 9px;
+      font-size: 1.07em;
+    }
+    .volunteer-desc {
+      font-size: 1em;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    .bee-icon {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      right: 22px;
+      top: 17px;
+    }
+    .mic-icon {
+      width: 20px;
+      height: 30px;
+      position: absolute;
+      left: 22px;
+      top: 17px;
+    }
+    @media (max-width: 900px) {
+      .cards-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .layer-header {
+        font-size: 1.3em;
+        padding: 12px 0;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .layer-content {
+        padding: 0 10px;
+      }
+      .cards-row {
+        grid-template-columns: 1fr;
+      }
+      .cards-row > .volunteer-card {
+        max-width: 100%;
+        min-width: 160px;
+      }
+      .layer-header {
+        font-size: 1.1em;
+        padding: 8px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<body>
+  <div class="main-container">
+    <!-- Header -->
+    <div id="header">
+      <header>
+        <img src= "pics/speakershive_trans.png" alt="SPEAKERHIVE Logo" class="logo">
+        <h1 style="text-align:center;">SPEAKERSHIVE Volunteers - Our Extended Team</h1>
+        <img src="pics/Hive.png" class="hive-img" alt="Hive Icon">
+      </header>
+    </div>
+
+    <!-- Layer One -->
+    <div id="layer_one" class="layer">
+      <div class="layer-header">Digital Content Creation Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Jagadesh_Govindarajan.jpg" alt="Volunteer 2 Photo">
+            <div class="volunteer-name">Jagadeesh Govindarajan</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Shanthini.jpg" alt="Volunteer 2 Photo">
+            <div class="volunteer-name">Shanthini</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Bhavana.jpeg" alt="Volunteer 1 Photo">
+            <div class="volunteer-name">Bhavana</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Manikandan_Rajendran.png" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Manikandan Rajendran</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer Two -->
+    <div id="layer_two" class="layer">
+      <div class="layer-header">Education & Training Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Karthick_Mahalingam.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Karthick Mahalingam</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/kgunalan.png" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Kumar Gunalan</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/female.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Subhashini raja</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/male.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Narendran</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/male.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Satish Kumar</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/male.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Jagadeesh Ulaganathan</div>
+          </div>
+        </div>
+    </div>
+  </div>
+      
+<!-- Layer Three -->
+  <div id="layer_one" class="layer">
+      <div class="layer-header">Club & Members Growth Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/female.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Muki V S</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/kgunalan.png" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Kumar Gunalan</div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+<!-- Layer Four -->
+
+  <div id="layer_one" class="layer">
+      <div class="layer-header">Curriculum Development Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Saro.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Saro Velrajan</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Balaji.jpg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Balaji Krishnarajan</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/vijay.png" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Vijay Prasaad K T</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/female.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Sudha Rajesh</div>
+        </div>
+        </div>
+      </div>
+<!-- Layer Five -->      
+  <div id="layer_one" class="layer">
+      <div class="layer-header">Marketing & Promotions Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/male.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Logu</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    <!-- Layer Six -->
+    <div id="layer_two" class="layer">
+      <div class="layer-header">Mentors Pool Committee</div>
+      <div class="layer-content">
+        <div class="cards-row">
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/male.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Srinivasan Subramaniam</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Rajesh_R.jpg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Rajesh</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Sunil_baffna.jpg" alt="Volunteer 3 Photo"> 
+            <div class="volunteer-name">Sunil Baffna</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Velmutharasan_g.jpg" alt="Volunteer 3 Photo"> 
+            <div class="volunteer-name">Velmutharasan G</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Thomas.JPG" alt="Volunteer 3 Photo"> 
+            <div class="volunteer-name">Thomas T Abraham</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="pics/female.jpeg" alt="Volunteer 3 Photo">
+            <div class="volunteer-name">Asmita Singh</div>
+          </div>
+          <div class="volunteer-card">
+            <img class="volunteer-photo" src="VolunteersPics/Krish.jpeg" alt="Volunteer 3 Photo"> 
+            <div class="volunteer-name">Krish Sripathy</div>
+          </div>
+        </div>
+    </div>
+  </div>
+    </div>
+</body>
+</html>
