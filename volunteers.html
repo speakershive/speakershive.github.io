@@ -242,22 +242,92 @@
         padding: 8px 0;
       }
     }
+    .SH_header {
+        width: 100%;
+        height: 58px;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        padding-left: 29px;
+        padding-right: 10px;
+        border-bottom: 0.5px solid #00000080;
+        font-family: sans-serif;
+        -webkit-text-size-adjust: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .sh_header_left {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        width: 50%;
+        height: 100%;
+    }
+
+    .sh_header_left img{
+        height: 33px;
+        width: auto;
+    }
+
+    .sh_header_right {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        width: 50%;
+        height: 100%;
+    }
+    .sh_header_right ul {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+    }
+    .sh_header_right ul li {
+        display: inline;
+    }
+
+    .sh_header_right ul li a {
+        text-decoration: none;
+        color: #00000092;
+        font-size: 1.1vw;
+        transition: color 0.3s;
+    }
+    
+    .sh_header_right ul li a.active {
+        font-weight: bold;
+        color: #000000 !important;
+    }
   </style>
 </head>
 <body>
 
 <body>
   <div class="main-container">
-    <!-- Header -->
-    <div id="header">
-      <header>
-        <img src= "pics/speakershive_trans.png" alt="SPEAKERHIVE Logo" class="logo">
-        <h1 style="text-align:center;">SPEAKERSHIVE Volunteers - Our Extended Team</h1>
-        <img src="pics/Hive.png" class="hive-img" alt="Hive Icon">
-      </header>
-      <div style="width:100%;text-align:right;margin:18px 0;">
-        <a href="index.html" style="display:inline-block;padding:10px 24px;background:#eed669;color:#222;text-decoration:none;border-radius:8px;font-weight:600;box-shadow:0 2px 8px #ffe066;transition:background 0.2s;">&#8592; Back to Home</a>
-      </div>
+    <div class="SH_header">
+        <div class="sh_header_left">
+            <img src= "./pics/speakersHive.jpeg" alt="SPEAKERHIVE Logo" class="logo">
+        </div>
+        <div class="sh_header_right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./volunteers.html">Volunteers</a></li>
+                <li><a href="https://blog.speakershive.org/">Blog</a></li>
+                <li>
+                  <a href="#" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="vertical-align:middle;" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                  </a>
+                </li>
+            </ul>
+         </div>  
     </div>
 
     <!-- Layer One -->
@@ -409,4 +479,37 @@
   </div>
     </div>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all navigation links
+    const navLinks = document.querySelectorAll('.sh_header_right ul li a');
+    
+    // Set the current page as active (Volunteers page in this case)
+    const currentPage = window.location.pathname.split('/').pop();
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage || 
+            (currentPage === 'volunteers.html' && link.getAttribute('href') === './volunteers.html')) {
+            link.classList.add('active');
+        }
+    });
+    
+    // Add click event listeners
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Don't prevent default for external links (like Blog)
+            if (!this.getAttribute('href').startsWith('http') && 
+                this.getAttribute('href') !== '#') {
+                
+                // Remove active class from all links
+                navLinks.forEach(nav => nav.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+            }
+        });
+    });
+});
+</script>
+
 </html>
